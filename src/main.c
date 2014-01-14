@@ -1,14 +1,36 @@
 #include "pebble.h"
 //Arrays
 #define NUM_MENU_SECTIONS 3
+#define NUM_MENU_SECTIONS_ALGEBRA 3
 #define NUM_MATH_MENU_ITEMS 4
 #define NUM_SCIENCE_MENU_ITEMS 3
 #define NUM_THIRD_MENU_ITEMS 0
-
+#define NUM_ALGEBRA_MENU_ITEMS 1
+#define NUM_GEOMETRY_MENU_ITEMS 1
+#define NUM_TRIG_MENU_ITEMS 1
+#define NUM_CALC_MENU_ITEMS 1
+#define NUM_BIOLOGY_MENU_ITEMS 1
+#define NUM_PHYSICS_MENU_ITEMS 1
+	
 static Window *window;
 static Window *AlgebraWindow;
-static Window *window2;
 static Layer *layer2;
+
+//Menu Layers
+static SimpleMenuLayer *algebra_menu_layer;
+static SimpleMenuLayer *geometry_menu_layer;
+static SimpleMenuLayer *trig_menu_layer;
+static SimpleMenuLayer *calc_menu_layer;
+static SimpleMenuLayer *biology_menu_layer;
+static SimpleMenuLayer *physics_menu_layer;
+
+//Advanced Menu Items
+static SimpleMenuItem algebra_menu_items[NUM_ALGEBRA_MENU_ITEMS];
+static SimpleMenuItem geometry_menu_items[NUM_GEOMETRY_MENU_ITEMS];
+static SimpleMenuItem trig_menu_items[NUM_TRIG_MENU_ITEMS];
+static SimpleMenuItem calc_menu_items[NUM_CALC_MENU_ITEMS];
+static SimpleMenuItem biology_menu_items[NUM_BIOLOGY_MENU_ITEMS];
+static SimpleMenuItem physics_menu_items[NUM_PHYSICS_MENU_ITEMS];
 
 static SimpleMenuLayer *simple_menu_layer;
 
@@ -21,31 +43,35 @@ static SimpleMenuItem science_menu_items[NUM_SCIENCE_MENU_ITEMS];
 
 static SimpleMenuItem third_menu_items[NUM_THIRD_MENU_ITEMS];
 
-void AlgebraWindow_unload(Window *window) {
-  layer_destroy(layer2);
-  window_destroy(window2);
-
-}
-static void update_layer_callback(Layer *layer, GContext* ctx) {
-  graphics_context_set_text_color(ctx, GColorBlack);
+void AlgebraWindow_unload(Window *AlgebraWindow) {
+  window_destroy(AlgebraWindow);
 }
 //Callbacks for Functionality
-static void algebra_select_callback(int index, void *ctx) { 
-	  AlgebraWindow = window_create();
-
-  // Setup the window handlers
-  window_set_window_handlers(AlgebraWindow, (WindowHandlers) {
-    .unload = AlgebraWindow_unload,
-  });
+static void algebra_select_callback(int index, void *ctx) {
+  AlgebraWindow = window_create();
 	
-  Layer *window_layer = window_get_root_layer(window2);
+	int num2_a_items = 0;
+  algebra_menu_items[num2_a_items++] = (SimpleMenuItem){
+    .title = "Algebra1",
+        .subtitle = "Basic2 Alegbra Equations Test",
+  };
+
+
+	
+  Layer *window_layer = window_get_root_layer(AlgebraWindow);
   GRect bounds = layer_get_frame(window_layer);
   layer2 = layer_create(bounds);
-  layer_set_update_proc(layer2, update_layer_callback);
-  layer_add_child(window_layer, layer2);
+
+  algebra_menu_layer = simple_menu_layer_create(bounds, window, menu_sections, NUM_MENU_SECTIONS_ALGEBRA, NULL);
+
+  layer_add_child(window_layer, simple_menu_layer_get_layer(algebra_menu_layer));
 
   window_stack_push(AlgebraWindow, true /* Animated */);
+	app_event_loop();
+	
 }
+
+
 static void window_load(Window *window) {
   int num_a_items = 0;
   math_menu_items[num_a_items++] = (SimpleMenuItem){
