@@ -1,0 +1,18 @@
+{
+    "versionLabel": "1.0.2",
+    "uuid": "663627ab-0ba3-442f-8cb7-2e7df6107dd7",
+    "appKeys": {},
+    "longName": "PebbleFormulas",
+    "versionCode": 1,
+    "capabilities": [
+        ""
+    ],
+    "shortName": "PebbleFormulas",
+    "companyName": "Blackpaw78",
+    "watchapp": {
+        "watchface": false
+    },
+    "resources": {
+        "media": []
+    }
+}
