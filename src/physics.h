@@ -1,5 +1,5 @@
-#ifndef second_h
-#define second_h
+#ifndef physics_h
+#define physics_h
 
 void show_physics_menu();
 

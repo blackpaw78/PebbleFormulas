@@ -1,5 +1,5 @@
-#ifndef second_h
-#define second_h
+#ifndef algebra_h
+#define algebra_h
 
 void show_algebra_menu();
 
