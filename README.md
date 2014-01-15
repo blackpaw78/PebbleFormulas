@@ -30,9 +30,19 @@ Added seperate function for each of the sections.
 
 Made each callback have its own C File.
 
-v 1.0.4 *Not Released* *TODO*
+v 1.1.1
 
-Modify each section to have the formulas listed.
+Created Sections for Math, Science, and About
+
+Added the first formulas to Algebra, Geometry, Trig, Calculus, Bio, and Science
+
+Added the version, and contact to the about section
+
+Added app Icon
+
+Removed Junk Code
+
+Optimized File size
 
 
 
