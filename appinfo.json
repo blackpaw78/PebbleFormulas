@@ -1,5 +1,5 @@
 {
-    "versionLabel": "1.0.3",
+    "versionLabel": "1.1.1",
     "uuid": "663627ab-0ba3-442f-8cb7-2e7df6107dd7",
     "appKeys": {},
     "longName": "PebbleFormulas",
@@ -13,6 +13,13 @@
         "watchface": false
     },
     "resources": {
-        "media": []
+        "media": [
+            {
+                "menuIcon": true,
+                "type": "png",
+                "name": "IMAGE_PEBBLE_ICON",
+                "file": "images/pebbleformula.png"
+            }
+        ]
     }
 }
