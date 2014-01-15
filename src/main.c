@@ -6,6 +6,13 @@
 #include "calc.h"
 #include "biology.h"
 #include "physics.h"
+#include "second.c"
+#include "algebra.c"
+#include "geometry.c"
+#include "trigonometry.c"
+#include "calc.c"
+#include "biology.c"
+#include "physics.c"
 	
 #define NUM_MATH_MENU_ITEMS 6
 #define NUM_MENU_SECTIONS 1
