@@ -6,17 +6,10 @@
 #include "calc.h"
 #include "biology.h"
 #include "physics.h"
-#include "second.c"
-#include "algebra.c"
-#include "geometry.c"
-#include "trigonometry.c"
-#include "calc.c"
-#include "biology.c"
-#include "physics.c"
 	
 #define NUM_MATH_MENU_ITEMS 6
-#define NUM_MENU_SECTIONS 1
-
+#define NUM_MENU_SECTIONS 2
+#define NUM_SCIENCE_MENU_ITEMS 2
 static Window *window;
 
 static SimpleMenuLayer *simple_menu_layer;
@@ -25,6 +18,7 @@ static SimpleMenuSection menu_sections[NUM_MENU_SECTIONS];
 
 //Menu Items
 static SimpleMenuItem math_menu_items[NUM_MATH_MENU_ITEMS];
+static SimpleMenuItem science_menu_items[NUM_SCIENCE_MENU_ITEMS];
 
 
 
@@ -78,12 +72,12 @@ static void window_load(Window *window) {
 	.subtitle = "Calc Equations",
     .callback = calc_select_callback,
   };
-  math_menu_items[num_a_items++] = (SimpleMenuItem){
+  science_menu_items[num_a_items++] = (SimpleMenuItem){
     .title = "Biology Equations",
 	.subtitle = "Bio Equations",
     .callback = bio_select_callback,
   };
-  math_menu_items[num_a_items++] = (SimpleMenuItem){
+  science_menu_items[num_a_items++] = (SimpleMenuItem){
     .title = "Physics Equations",
 	.subtitle = "Yay Physics!",
     .callback = physics_select_callback,
@@ -92,6 +86,11 @@ static void window_load(Window *window) {
   .title ="Categories",
   .num_items = NUM_MATH_MENU_ITEMS,
   .items = math_menu_items,
+  };
+  menu_sections[1] = (SimpleMenuSection){
+  .title ="Categories",
+  .num_items = NUM_SCIENCE_MENU_ITEMS,
+  .items = science_menu_items,
   };
 	
   // Now we prepare to initialize the simple menu layer
@@ -108,7 +107,7 @@ static void window_load(Window *window) {
 }
 
 // Deinitialize resources on window unload that were initialized on window load
-void window_unload(Window *window) {
+static void window_unload(Window *window) {
   simple_menu_layer_destroy(simple_menu_layer);
 }
 

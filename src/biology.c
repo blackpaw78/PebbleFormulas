@@ -63,7 +63,7 @@ static void window_load(Window *window) {
   layer_add_child(window_layer, simple_menu_layer_get_layer(simple_menu_layer));
 }
 
-void show_second_menu(){
+void show_bio_menu(){
    window = window_create();
 
   // Setup the window handlers

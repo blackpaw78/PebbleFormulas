@@ -62,8 +62,8 @@ static void window_load(Window *window) {
   // Add it to the window for display
   layer_add_child(window_layer, simple_menu_layer_get_layer(simple_menu_layer));
 }
-
-void show_second_menu(){
+//Static makes it only for this file.
+void show_geometry_menu(){
    window = window_create();
 
   // Setup the window handlers
