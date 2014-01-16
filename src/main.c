@@ -6,10 +6,12 @@
 #include "biology.h"
 #include "physics.h"
 #include "chemistry.h"
+#include "conversion.h"
 	
 #define NUM_MATH_MENU_ITEMS 4
-#define NUM_MENU_SECTIONS 3
+#define NUM_MENU_SECTIONS 4
 #define NUM_SCIENCE_MENU_ITEMS 3
+#define NUM_OTHER_MENU_ITEMS 1
 #define NUM_ABOUT_MENU_ITEMS 2
 static Window *window;
 
@@ -20,6 +22,7 @@ static SimpleMenuSection menu_sections[NUM_MENU_SECTIONS];
 static SimpleMenuItem math_menu_items[NUM_MATH_MENU_ITEMS];
 static SimpleMenuItem science_menu_items[NUM_SCIENCE_MENU_ITEMS];
 static SimpleMenuItem about_menu_items[NUM_ABOUT_MENU_ITEMS];
+static SimpleMenuItem other_menu_items[NUM_OTHER_MENU_ITEMS];
 
 //Callbacks
 
@@ -44,6 +47,10 @@ static void physics_select_callback(int index, void *ctx) {
 static void chemistry_select_callback(int index, void *ctx) {
   show_chemistry_menu();
 }
+static void conversion_select_callback(int index, void *ctx) {
+  show_conversion_menu();
+}
+
 
 
 
@@ -52,6 +59,7 @@ static void window_load(Window *window) {
   int num_a_items = 0;
   int num_a2_items = 0;
   int num_a3_items = 0;
+  int num_a4_items = 0;
 
   math_menu_items[num_a_items++] = (SimpleMenuItem){
     .title = "Algebra",
@@ -86,11 +94,16 @@ static void window_load(Window *window) {
   science_menu_items[num_a2_items++] = (SimpleMenuItem){
     .title = "Chemistry",
 	.subtitle = "Chemistry Formulas",
-    .callback = physics_select_callback,
+    .callback = chemistry_select_callback,
+  };
+  other_menu_items[num_a4_items++] = (SimpleMenuItem){
+    .title = "Conversions",
+	.subtitle = "Unit Conversion",
+    .callback = conversion_select_callback,
   };
   about_menu_items[num_a3_items++] = (SimpleMenuItem){
     .title = "Version",
-	.subtitle = "1.1.1 Stable",
+	.subtitle = "1.1.5 Stable",
   };
   about_menu_items[num_a3_items++] = (SimpleMenuItem){
     .title = "Contact Me",
@@ -107,6 +120,12 @@ static void window_load(Window *window) {
   .items = science_menu_items,
   };
   menu_sections[2] = (SimpleMenuSection){
+  .title ="Other",
+  .num_items = NUM_OTHER_MENU_ITEMS,
+  .items = other_menu_items,
+  };
+
+  menu_sections[3] = (SimpleMenuSection){
   .title ="About",
   .num_items = NUM_ABOUT_MENU_ITEMS,
   .items = about_menu_items,
