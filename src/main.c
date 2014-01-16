@@ -5,10 +5,11 @@
 #include "calc.h"
 #include "biology.h"
 #include "physics.h"
+#include "chemistry.h"
 	
 #define NUM_MATH_MENU_ITEMS 4
 #define NUM_MENU_SECTIONS 3
-#define NUM_SCIENCE_MENU_ITEMS 2
+#define NUM_SCIENCE_MENU_ITEMS 3
 #define NUM_ABOUT_MENU_ITEMS 2
 static Window *window;
 
@@ -40,6 +41,10 @@ static void bio_select_callback(int index, void *ctx) {
 static void physics_select_callback(int index, void *ctx) {
   show_physics_menu();
 }
+static void chemistry_select_callback(int index, void *ctx) {
+  show_chemistry_menu();
+}
+
 
 
 static void window_load(Window *window) {
@@ -76,6 +81,11 @@ static void window_load(Window *window) {
   science_menu_items[num_a2_items++] = (SimpleMenuItem){
     .title = "Physics",
 	.subtitle = "Yay Physics!",
+    .callback = physics_select_callback,
+  };
+  science_menu_items[num_a2_items++] = (SimpleMenuItem){
+    .title = "Chemistry",
+	.subtitle = "Chemistry Formulas",
     .callback = physics_select_callback,
   };
   about_menu_items[num_a3_items++] = (SimpleMenuItem){
