@@ -22,16 +22,16 @@ static void window_load(Window *window) {
   int num_a_items = 0;
 
   trig_menu_items[num_a_items++] = (SimpleMenuItem){
-    .title = "Pythagorean Identity 1",
+    .title = "Pythag Identity 1",
 	.subtitle = "sin²u+cos²u = 1",
   };
 
   trig_menu_items[num_a_items++] = (SimpleMenuItem){
-    .title = "Pythagorean Identity 2",
+    .title = "Pythag Identity 2",
 	.subtitle = "1+tan²u= = sec²u",
   };
   trig_menu_items[num_a_items++] = (SimpleMenuItem){
-    .title = "Pythagorean Identity 3",
+    .title = "Pythag Identity 3",
 	.subtitle = "1+cot²u = sec²u",
   };
   trig_menu_items[num_a_items++] = (SimpleMenuItem){

@@ -34,19 +34,19 @@ static void window_load(Window *window) {
 	.subtitle = "f(g(x)) = f'(g(x))*g'(x)"
   };
   calc_menu_items[num_a_items++] = (SimpleMenuItem){
-    .title = "Derivitive ln(x)",
+    .title = "Derivative ln(x)",
 	.subtitle = "f'(ln x)= (1/x)"
   };
   calc_menu_items[num_a_items++] = (SimpleMenuItem){
-    .title = "Derivitive e^x",
+    .title = "Derivative e^x",
 	.subtitle = "f'(e^x)= e^x *(du/dx)"
   };
   calc_menu_items[num_a_items++] = (SimpleMenuItem){
-    .title = "Arcsine Derivitive",
+    .title = "Arcsine Derivative",
 	.subtitle = "1/((1-x²)^1/2)"
   };
   calc_menu_items[num_a_items++] = (SimpleMenuItem){
-    .title = "Arctan Derivitive",
+    .title = "Arctan Derivative",
 	.subtitle = "f'(arctan x) = 1/1+x²"
   };
 

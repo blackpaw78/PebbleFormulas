@@ -7,10 +7,11 @@
 #include "physics.h"
 #include "chemistry.h"
 #include "conversion.h"
+#include "electricity.h"
 	
 #define NUM_MATH_MENU_ITEMS 4
 #define NUM_MENU_SECTIONS 4
-#define NUM_SCIENCE_MENU_ITEMS 3
+#define NUM_SCIENCE_MENU_ITEMS 4
 #define NUM_OTHER_MENU_ITEMS 1
 #define NUM_ABOUT_MENU_ITEMS 2
 static Window *window;
@@ -47,10 +48,12 @@ static void physics_select_callback(int index, void *ctx) {
 static void chemistry_select_callback(int index, void *ctx) {
   show_chemistry_menu();
 }
+static void elec_select_callback(int index, void *ctx) {
+  show_elec_menu();
+}
 static void conversion_select_callback(int index, void *ctx) {
   show_conversion_menu();
 }
-
 
 
 
@@ -96,6 +99,11 @@ static void window_load(Window *window) {
 	.subtitle = "Chemistry Formulas",
     .callback = chemistry_select_callback,
   };
+  science_menu_items[num_a2_items++] = (SimpleMenuItem){
+    .title = "Electricity",
+	.subtitle = "Electrical Formulas",
+    .callback = elec_select_callback,
+  };
   other_menu_items[num_a4_items++] = (SimpleMenuItem){
     .title = "Conversions",
 	.subtitle = "Unit Conversion",
@@ -103,7 +111,7 @@ static void window_load(Window *window) {
   };
   about_menu_items[num_a3_items++] = (SimpleMenuItem){
     .title = "Version",
-	.subtitle = "1.1.5 Stable",
+	.subtitle = "1.1.7 Stable",
   };
   about_menu_items[num_a3_items++] = (SimpleMenuItem){
     .title = "Contact Me",
