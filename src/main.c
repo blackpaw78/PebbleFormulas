@@ -111,7 +111,7 @@ static void window_load(Window *window) {
   };
   about_menu_items[num_a3_items++] = (SimpleMenuItem){
     .title = "Version",
-	.subtitle = "1.1.7 Stable",
+	.subtitle = "1.1.8 Stable",
   };
   about_menu_items[num_a3_items++] = (SimpleMenuItem){
     .title = "Contact Me",

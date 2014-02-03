@@ -1,7 +1,7 @@
 #include "pebble.h"
 #include "physics.h"
 	
-#define NUM_PHYSICS_MENU_ITEMS 4
+#define NUM_PHYSICS_MENU_ITEMS 9
 
 static Window *window;
 
@@ -36,7 +36,26 @@ static void window_load(Window *window) {
     .title = "Kinematic Equation",
 	.subtitle = "d=(Vi+Vf/2)*t"
   };
-
+  physics_menu_items[num_a_items++] = (SimpleMenuItem){
+    .title = "Kinetic Energy",
+	.subtitle = "KE= 1/2mv²"
+  };
+  physics_menu_items[num_a_items++] = (SimpleMenuItem){
+    .title = "Work Formula",
+	.subtitle = "W= F*d*cos(θ)"
+  };
+  physics_menu_items[num_a_items++] = (SimpleMenuItem){
+    .title = "Spring Potential E",
+	.subtitle = "PE= 1/2*k*x²"
+  };
+  physics_menu_items[num_a_items++] = (SimpleMenuItem){
+    .title = "Potential Energy",
+	.subtitle = "PE= m*g*h"
+  };
+  physics_menu_items[num_a_items++] = (SimpleMenuItem){
+    .title = "Kinetic Energy",
+	.subtitle = "KE= 1/2m*v²"
+  };
   menu_sections.num_items = NUM_PHYSICS_MENU_ITEMS;
   menu_sections.items = physics_menu_items;
 
